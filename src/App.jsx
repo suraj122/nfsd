@@ -10,6 +10,7 @@ import User from "./components/User";
 import { lazy, Suspense, useState } from "react";
 import Accordion from "./components/Accordion";
 import Comment from "./components/comments/Comment";
+import Slider from "./components/Slider";
 const About = lazy(() => import("./components/About"));
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/accordion" element={<Accordion />} />
           <Route path="/comments" element={<Comment />} />
+          <Route path="/slider" element={<Slider />} />
           <Route
             path="*"
             element={

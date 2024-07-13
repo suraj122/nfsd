@@ -27,6 +27,9 @@ const Header = ({ lang, setLang }) => {
             <Link to="/comments">Comments</Link>
           </li>
           <li>
+            <Link to="/slider">Slider</Link>
+          </li>
+          <li>
             <select
               className="text-gray-900"
               value={lang}
