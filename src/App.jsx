@@ -12,6 +12,7 @@ import Accordion from "./components/Accordion";
 import Comment from "./components/comments/Comment";
 import Slider from "./components/Slider";
 const About = lazy(() => import("./components/About"));
+const Pagination = lazy(() => import("./components/pagination/Pagination"));
 
 function App() {
   const [lang, setLang] = useState("en");
@@ -38,6 +39,7 @@ function App() {
           <Route path="/accordion" element={<Accordion />} />
           <Route path="/comments" element={<Comment />} />
           <Route path="/slider" element={<Slider />} />
+          <Route path="pagination" element={<Pagination />} />
           <Route
             path="*"
             element={
