@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
+import Shimmer from "../Shimmer";
 
 const LIMIT = 10;
 
@@ -7,12 +8,14 @@ const Pagination = () => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchProducts();
   }, [currentPage]);
 
   const fetchProducts = async () => {
+    setLoading(true);
     const data = await fetch(
       `https://dummyjson.com/products?limit=${LIMIT}&skip=${
         currentPage * LIMIT
@@ -21,14 +24,28 @@ const Pagination = () => {
     const json = await data.json();
     setProducts(json.products);
     setPage(Math.ceil(json.total / 10));
+    setLoading(false);
   };
+
+  //   if (loading) {
+  //     return (
+  //       <div className="grid grid-cols-4 gap-6">
+  //         <Shimmer />
+  //       </div>
+  //     );
+  //   }
 
   return (
     <div className="p-24">
       <div className="grid grid-cols-4 container mx-auto gap-6">
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+        {loading ? (
+          <Shimmer />
+        ) : (
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
+        )}
+        {}
       </div>
       <div className="flex justify-center items-center gap-1 mt-6">
         {currentPage > 0 && (
