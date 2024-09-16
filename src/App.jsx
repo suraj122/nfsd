@@ -11,6 +11,7 @@ import { lazy, Suspense, useState } from "react";
 import Accordion from "./components/Accordion";
 import Comment from "./components/comments/Comment";
 import Slider from "./components/Slider";
+import LiveChat from "./components/liveChat/LiveChat";
 const About = lazy(() => import("./components/About"));
 const Pagination = lazy(() => import("./components/pagination/Pagination"));
 
@@ -39,7 +40,8 @@ function App() {
           <Route path="/accordion" element={<Accordion />} />
           <Route path="/comments" element={<Comment />} />
           <Route path="/slider" element={<Slider />} />
-          <Route path="pagination" element={<Pagination />} />
+          <Route path="/pagination" element={<Pagination />} />
+          <Route path="/live-chat" element={<LiveChat />} />
           <Route
             path="*"
             element={
