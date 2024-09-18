@@ -12,6 +12,7 @@ import Accordion from "./components/Accordion";
 import Comment from "./components/comments/Comment";
 import Slider from "./components/Slider";
 import LiveChat from "./components/liveChat/LiveChat";
+import Search from "./components/Search/Search";
 const About = lazy(() => import("./components/About"));
 const Pagination = lazy(() => import("./components/pagination/Pagination"));
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/slider" element={<Slider />} />
           <Route path="/pagination" element={<Pagination />} />
           <Route path="/live-chat" element={<LiveChat />} />
+          <Route path="/search" element={<Search />} />
           <Route
             path="*"
             element={
